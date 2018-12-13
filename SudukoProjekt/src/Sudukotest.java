@@ -1,3 +1,4 @@
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 
 import static org.junit.Assert.assertSame;
@@ -17,8 +18,13 @@ class Sudukotest {
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, };
 	
-	private int[][] UNSOLVE_GRID = { { 5, 0, 0, 5, 0, 0, 0, 1, 0 }, { 2, 7, 8, 0, 0, 0, 4, 0, 0 },
+	private int[][] UNSOLVABLE_GRID = { { 5, 0, 0, 5, 0, 0, 0, 1, 0 }, { 2, 7, 8, 0, 0, 0, 4, 0, 0 },
 			{ 0, 0, 0, 0, 0, 1, 0, 0, 0 }, { 0, 2, 0, 0, 0, 0, 0, 9, 0 }, { 0, 0, 0, 0, 4, 0, 0, 0, 0 },
+			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, };
+	
+	private int[][] SOLVABLE_GRID = { { 9, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
+			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 }, { 0, 0, 0, 0, 0, 0, 0, 0, 0 },
 			{ 0, 0, 0, 0, 0, 0, 0, 0, 0 }, };
 	
@@ -32,25 +38,25 @@ class Sudukotest {
 		 gui = new SudukoGame();
 	}
 
-	@AfterEach
-	void tearDown() throws Exception {
-	}
 
-//	@Test
-//	void testEmptyGrid() {
-//		 solver.solve(0,0);
-//		 
-//		 
-//		 
-//		assertSame("hhshs", solver.getTilePane(), EMPTY_GRID );
-//		
-//		
-//	}
+	@Test
+	void testUnsolvableGrid() {
+		Solver solver = new Solver(UNSOLVABLE_GRID);
+		assertFalse(solver.solve(0, 0));
+		 
+	}
 	
 	@Test
-	void testUnsolvableGrid()
+	void testEmptyGrid()
 	{
 		Solver solver = new Solver(EMPTY_GRID);
+		assertTrue(solver.solve(0, 0));
+	}
+	
+	@Test
+	void testSolvableGrid()
+	{
+		Solver solver = new Solver(SOLVABLE_GRID);
 		assertTrue(solver.solve(0, 0));
 	}
 

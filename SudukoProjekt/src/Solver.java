@@ -1,12 +1,12 @@
 
 public class Solver {
 
-	final int SIZE = 50;
+	//final int SIZE = 50;
 
 	final int NBR_ROW = 9;
 	final int NBR_COL = 9;
 	private static final int EMPTY = 0;
-	public int[][] GRID_TO_SOLVE;
+	private int[][] GRID_TO_SOLVE;
 
 	/**
 	 * the method checks if a given number is in a specific row
@@ -110,8 +110,6 @@ public class Solver {
 	 * @return false If the suduko can not be solved
 	 **/
 	public boolean solve(int i, int j) {
-		// for (int row = 0; row < NBR_ROW; row++) {
-		// for (int col = 0; col < NBR_COL; col++) {
 
 		if (j == 9) // change row
 		{
@@ -145,13 +143,10 @@ public class Solver {
 			// If cell is not empty
 		} else {
 
-			// tillflligt plockar bort värdet, sen lägger tillbaka oavsett om det blir
-			// true/false
+			//Temporarily picks away a value, and puts it back later, no matter if it is true or false
 			int nbr = GRID_TO_SOLVE[i][j];
 			GRID_TO_SOLVE[i][j] = EMPTY;
 
-			// if the number is ok VARFÖR FUNKAR DET (TILL VISS DEL) MED !isOk
-			// !??!?!?!??!?!?!?!?!??!?
 			if (isOk(i, j, nbr)) {
 
 				GRID_TO_SOLVE[i][j] = nbr;

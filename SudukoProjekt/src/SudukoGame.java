@@ -1,6 +1,4 @@
 
-//huiwdbjwbdkjwbdkwbdkwjd
-
 import javafx.application.Application;
 
 import javafx.scene.Scene;
@@ -13,10 +11,9 @@ import javafx.stage.Stage;
 
 public class SudukoGame extends Application {
 
-	// Antal rader och kolumner i brädet
 	private int NBR_COL = 9;
 	private int NBR_ROW = 9;
-	final int SIZE = 50; // bestämmer rutstorleken, kan bara göras en gång.. Ty Final
+	final int SIZE = 50; // textfield size, final i.e the size is set only once
 	private SetUpGUI grid;
 	private Stage stage;
 	private Solver solver;
@@ -36,8 +33,6 @@ public class SudukoGame extends Application {
 
 		this.stage = stage;
 
-		// SetUpGUI has nothing to do with GRID_TO_SOLVE. We get the GUI, and all
-		// TilePane and TextFields.
 		grid = new SetUpGUI(GRID_TO_SOLVE);
 
 		HBox hb = new HBox();
@@ -68,22 +63,16 @@ public class SudukoGame extends Application {
 			// GRID_TO_SOLVE in the class SetUpGUI. GRID_TO_SOLVE gets updated
 			grid.readTile(grid.getTilePane());
 
-	
-
 			// To pass the grid between the two classes.. The read off matrix is now passed
 			// on to the Solver-class
 			solver = new Solver(grid.getBoard());
-			
-			
-			// to erase all "0" and letters, zeros and letters are replaced with " ", just the GUI, what we see.
+
+			// to erase all "0" and letters, zeros and letters are replaced with " ", just
+			// the GUI, what we see.
 			grid.resetTile();
-			
-		
-			
-					
 
 			// When we use the solve method,the matrix EMPTY_GRID will change..
-			if (solver.solve(0,0) == false) {
+			if (solver.solve(0, 0) == false) {
 
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Sudukot går ej att lösa");

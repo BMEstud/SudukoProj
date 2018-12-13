@@ -21,7 +21,7 @@ public class SetUpGUI {
 
 	/**
 	 * The method is setting up the GUI, formatting the tilepane with textfields,
-	 * and inputs the values from the matrix (param)
+	 * and puts in the values from the matrix (param)
 	 *
 	 * @param GRID_TO_SOLVE, A matrix which corresponds to the text in the textfield
 	 *        which the users sees
@@ -60,7 +60,7 @@ public class SetUpGUI {
 			tf.setText(str);
 
 			// If the matrix consists of zeroes (example empty matrix) we replace the zeroes
-			// with nothing, so
+			// with nothing, so (" ")
 			// the user dont see any number in the suduko grid
 			if (s == 0) {
 				tf.setText("");
