@@ -159,7 +159,6 @@ public class SetUpGUI {
 	 * finds any character not allowed, the user will get an information message
 	 * 
 	 * @param TilePane, the tilePane consisting of textFields
-	 * @return An alert message box
 	 */
 
 	public void readTile(TilePane tilePane) {
