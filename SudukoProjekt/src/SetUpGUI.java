@@ -215,7 +215,7 @@ public class SetUpGUI {
 
 			// If the textfields conatins a letter or a number with more then 1 digit,return
 			// false
-			if (((TextField) node).getText().matches("[A-Za-ö]") || !((TextField) node).getText().matches("\\d{0,1}")) {
+			if (((TextField) node).getText().matches("[A-Za-ö]") || !((TextField) node).getText().matches("\\d{0,1}") ) {
 
 				return false;
 

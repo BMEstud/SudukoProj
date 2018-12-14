@@ -1,7 +1,7 @@
 
 public class Solver {
 
-	//final int SIZE = 50;
+	// final int SIZE = 50;
 
 	final int NBR_ROW = 9;
 	final int NBR_COL = 9;
@@ -22,6 +22,7 @@ public class Solver {
 
 	public Solver(int[][] GRID) {
 		this.GRID_TO_SOLVE = GRID;
+		solve(0,0);
 
 	}
 
@@ -109,7 +110,7 @@ public class Solver {
 	 * @return true If the suduko can be solved
 	 * @return false If the suduko can not be solved
 	 **/
-	public boolean solve(int i, int j) {
+	private boolean solve(int i, int j) {
 
 		if (j == 9) // change row
 		{
@@ -143,7 +144,8 @@ public class Solver {
 			// If cell is not empty
 		} else {
 
-			//Temporarily picks away a value, and puts it back later, no matter if it is true or false
+			// Temporarily picks away a value, and puts it back later, no matter if it is
+			// true or false
 			int nbr = GRID_TO_SOLVE[i][j];
 			GRID_TO_SOLVE[i][j] = EMPTY;
 
@@ -162,9 +164,16 @@ public class Solver {
 		return false;
 
 	}
-
-	public int[][] getGRID() {
-
-		return this.GRID_TO_SOLVE;
+	
+	public boolean checkIfSolved() {
+		
+		if(solve(0,0) == true) {
+			return true;
+		}
+		
+		return false;
+		
+		
 	}
+
 }

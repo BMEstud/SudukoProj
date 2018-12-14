@@ -41,23 +41,23 @@ class Sudukotest {
 
 	@Test
 	void testUnsolvableGrid() {
+
 		Solver solver = new Solver(UNSOLVABLE_GRID);
-		assertFalse(solver.solve(0, 0));
-		 
+
+		assertFalse(solver.checkIfSolved());
+
 	}
-	
+
 	@Test
-	void testEmptyGrid()
-	{
+	void testEmptyGrid() {
 		Solver solver = new Solver(EMPTY_GRID);
-		assertTrue(solver.solve(0, 0));
+		assertTrue(solver.checkIfSolved());
 	}
-	
+
 	@Test
-	void testSolvableGrid()
-	{
+	void testSolvableGrid() {
 		Solver solver = new Solver(SOLVABLE_GRID);
-		assertTrue(solver.solve(0, 0));
+		assertTrue(solver.checkIfSolved());
 	}
 
 }

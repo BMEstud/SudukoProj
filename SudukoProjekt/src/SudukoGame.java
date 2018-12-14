@@ -72,7 +72,7 @@ public class SudukoGame extends Application {
 			grid.resetTile();
 
 			// When we use the solve method,the matrix EMPTY_GRID will change..
-			if (solver.solve(0, 0) == false) {
+			if (solver.checkIfSolved() == false) {
 
 				Alert alert = new Alert(AlertType.INFORMATION);
 				alert.setTitle("Sudukot går ej att lösa");
@@ -87,7 +87,7 @@ public class SudukoGame extends Application {
 
 			} else { // if the suduko can be solved
 
-				grid = new SetUpGUI(solver.getGRID());
+				grid = new SetUpGUI(grid.getBoard());
 				grid.getBorderPane().setCenter(grid.getTilePane());
 				grid.getBorderPane().setBottom(hb);
 				setStage2(grid.getBorderPane()).show();
@@ -136,6 +136,8 @@ public class SudukoGame extends Application {
 
 		return stage;
 	}
+	
+	
 
 	public static void main(String[] args) {
 
